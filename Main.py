@@ -36,7 +36,6 @@ def Main():
             while True:
                 data = connection.recv(ReceiveDataBudder)
                 if data:
-                    time.sleep(0.1)
                     (roll,pitch) = _adx.RollPitch()
                     data = str(roll) + "-" + str(pitch)
                     connection.sendall(data.encode('utf-8'))
