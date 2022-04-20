@@ -43,10 +43,10 @@ try:
         else:
             rollF = 0.94 * rollF + 0.06 * _roll
             pitchF = 0.94 * pitchF + 0.06 * _pitch
-        ser.write(bytearray(struct.pack("f", rollF)) )
+        ser.write(bytearray(struct.pack("f", rollF)))
         ser.write("/".encode("utf-8"))
-        ser.write(bytearray(struct.pack("f", pitchF)) )
-        ser.write("\n")
+        ser.write(bytearray(struct.pack("f", pitchF)))
+        ser.write("\n".encode("utf-8"))
 except Exception as e:
     print(str(e))
 
