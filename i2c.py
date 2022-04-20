@@ -30,7 +30,7 @@ class i2c:
 			bit16 = (data[0] << 8) | data[1]
 		
 		if self.debug:
-			print(hex(register)+": "+hex(bit16));
+			print(hex(register)+": "+hex(bit16))
 			
 		return bit16
 	

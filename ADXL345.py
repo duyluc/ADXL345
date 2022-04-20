@@ -313,5 +313,4 @@ class ADXL345:
             pitch = math.atan(-1 * accel_x/math.sqrt(math.pow(accel_y,2) + math.pow(accel_z,2))) *180/math.pi
         except Exception as e:
             print(str(e))
-        print(str(accel_x) + "_____" + str(accel_x) + "_____" + str(accel_x))
         return (roll, pitch)

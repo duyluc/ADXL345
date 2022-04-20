@@ -12,7 +12,6 @@ Respondmes = "."
 try:
     
     while True:
-        print('>> sending "%s"' % Respondmes)
         sock.sendall(Respondmes.encode('utf-8'))
         # Look for the response
         data = sock.recv(1024)
