@@ -40,7 +40,7 @@ def Main():
                     (roll,pitch) = _adx.RollPitch()
                     data = str(roll) + "-" + str(pitch)
                     print("--> Send: " + data)
-                    connection.sendall(data)
+                    connection.sendall(data.encode('utf-8'))
                 else:
                     print(sys.stderr, '-->no more data from', client_address)
                     break
