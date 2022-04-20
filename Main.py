@@ -36,6 +36,7 @@ def Main():
                 data = connection.recv(ReceiveDataBudder)
                 if data:
                     print("-->Client Required!")
+                    print("--> Send: " + data)
                     (roll,pitch) = _adx.RollPitch()
                     data = ""
                     print("--> Send: " + data)
