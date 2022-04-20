@@ -1,6 +1,7 @@
 import socket
 import sys
 import serial
+import struct
 
 #from numpy import roll
 
@@ -34,7 +35,6 @@ try:
         receivedatasplit = data.decode('utf-8').split('$$')
         print(receivedatasplit[0])
         print(receivedatasplit[1])
-        pass
         _roll = float(receivedatasplit[0])
         _pitch = float(receivedatasplit[1])
         if(rollF == None):
@@ -43,9 +43,9 @@ try:
         else:
             rollF = 0.94 * rollF + 0.06 * _roll
             pitchF = 0.94 * pitchF + 0.06 * _pitch
-        ser.write(rollF)
+        ser.write(bytearray(struct.pack("f", rollF)) )
         ser.write("/")
-        ser.write(pitchF)
+        ser.write(bytearray(struct.pack("f", pitchF)) )
         ser.write("\n")
 except Exception as e:
     print(str(e))
