@@ -90,7 +90,7 @@ class ADXL345:
 
     def __init__(self, i2cport, DeviceAdrr = 0x53):
         #Setup I2CBus
-        self.bus = i2c.i2c(i2cport, DeviceAdrr,True)
+        self.bus = i2c.i2c(i2cport, DeviceAdrr)
 
         # Set defaults
         self.setScale()
@@ -298,7 +298,10 @@ class ADXL345:
 
     def RollPitch(self):
         try:
-            (accel_x, accel_y, accel_z) = self.getAxes()
+            (accel_x, accel_y, accel_z) = self.getRawAxes()
+            accel_x = accel_x/256.0
+            accel_y = accel_y/256.0
+            accel_z = accel_z/256.0
             if(accel_x == 0):
                 accel_x += 0.000001
             if(accel_y == 0):
