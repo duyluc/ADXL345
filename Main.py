@@ -10,7 +10,7 @@ import time
 
 def Main():
     #Property
-    ReceiveDataBudder = 1024
+    ReceiveDataBudder = 2
     #init IP Socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
