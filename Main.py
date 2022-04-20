@@ -39,6 +39,7 @@ def Main():
                     (roll,pitch) = _adx.RollPitch()
                     data = ""
                     try:
+                        print("--> Send: " + data)
                         data = str(roll) + "-" + str(pitch)
                     except Exception as e:
                         print(str(e))
