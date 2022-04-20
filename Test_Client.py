@@ -11,11 +11,14 @@ sock.connect(server_address)
 Respondmes = "."
 try:
     
-    print('>> sending "%s"' % Respondmes)
-    sock.sendall(Respondmes.encode('utf-8'))
-    # Look for the response
-    data = sock.recv(20)
-    print('>> received "%s"' % data.decode("utf-8"))
+    while True:
+        print('>> sending "%s"' % Respondmes)
+        sock.sendall(Respondmes.encode('utf-8'))
+        # Look for the response
+        data = sock.recv(20)
+        print('>> received "%s"' % data.decode("utf-8"))
+except Exception as e:
+    print(str(e))
 
 finally:
     print(sys.stderr, '>> closing socket')
