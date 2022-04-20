@@ -286,7 +286,10 @@ class ADXL345:
 
     def RollPitch(self):
         print("-------------")
-        (accel_x, accel_y, accel_z) = self.getAxes()
+        try:
+            (accel_x, accel_y, accel_z) = self.getAxes()
+        except Exception as e:
+            print(str(e))
         roll = math.atan(accel_y/math.sqrt(math.pow(accel_x,2) + math.pow(accel_z,2)))* 180/math.pi
         pitch = math.atan(-1 * accel_x/math.sqrt(math.pow(accel_y,2) + math.pow(math.pow(accel_z,2)))) *180/math.pi
         return (roll, pitch)
