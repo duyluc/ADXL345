@@ -31,7 +31,7 @@ try:
         # Look for the response
         data = sock.recv(1024)
         print('>> received "%s"' % data.decode("utf-8"))
-        receivedatasplit = data.decode('utf-8').split('-')
+        receivedatasplit = data.decode('utf-8').split('$$')
         print(receivedatasplit[0])
         print(receivedatasplit[1])
         pass
