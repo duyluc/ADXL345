@@ -15,7 +15,7 @@ try:
     sock.sendall(Respondmes.encode('utf-8'))
     # Look for the response
     data = sock.recv(20)
-    print('>> received "%s"' % data)
+    print('>> received "%s"' % data.decode("utf-8"))
 
 finally:
     print(sys.stderr, '>> closing socket')
