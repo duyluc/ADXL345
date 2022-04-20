@@ -32,6 +32,9 @@ try:
         data = sock.recv(1024)
         print('>> received "%s"' % data.decode("utf-8"))
         receivedatasplit = data.decode('utf-8').split('-')
+        print(receivedatasplit[0])
+        print(receivedatasplit[1])
+        pass
         _roll = float(receivedatasplit[0])
         _pitch = float(receivedatasplit[1])
         if(rollF == None):
