@@ -36,8 +36,8 @@ def Main():
             while True:
                 data = connection.recv(ReceiveDataBudder)
                 if data:
-                    (roll,pitch) = _adx.RollPitch()
-                    data = str(roll) + "$$" + str(pitch)
+                    (roll,pitch,yaw) = _adx.RollPitch()
+                    data = str(roll) + "$$" + str(pitch) + "$$" + str(yaw)
                     connection.sendall(data.encode('utf-8'))
                 else:
                     print(sys.stderr, '-->no more data from', client_address)

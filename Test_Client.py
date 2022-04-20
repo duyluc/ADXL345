@@ -19,6 +19,7 @@ ser = serial.Serial()
 try:
     rollF = None
     pitchF = None
+    yawF = None
     ser.port = "COM1"
     ser.baudrate = 9600
     ser.timeout = 1
@@ -37,16 +38,17 @@ try:
         print(receivedatasplit[1])
         _roll = float(receivedatasplit[0])
         _pitch = float(receivedatasplit[1])
+        _yaw = float(receivedatasplit[2])
         if(rollF == None):
             rollF = _roll
             pitchF = _pitch
+            yawF = _yaw
         else:
             rollF = 0.94 * rollF + 0.06 * _roll
             pitchF = 0.94 * pitchF + 0.06 * _pitch
-        ser.write(bytearray(struct.pack("f", rollF)))
-        ser.write("/".encode("utf-8"))
-        ser.write(bytearray(struct.pack("f", pitchF)))
-        ser.write("\n".encode("utf-8"))
+            yawF = 0.94 * yawF + 0.06 * _yaw
+        senddata = str(rollF) + "/" + str(pitchF) + str(yawF) + "\n"
+        ser.write(senddata.encode("ASCII"))
 except Exception as e:
     print(str(e))
 
