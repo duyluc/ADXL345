@@ -1,5 +1,6 @@
 from http import server
 import ADXL345
+from i2c_adxl345 import *
 import sys
 import socket
 import time
@@ -22,7 +23,7 @@ def Main():
     # Listen for incoming connections
     sock.listen(1)
 
-    _adx = ADXL345.ADXL345(1)
+    _adx = i2c_adxl345(1)
 
     while True:
         # Wait for a connection
