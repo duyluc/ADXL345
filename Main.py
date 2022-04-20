@@ -38,8 +38,8 @@ def Main():
                     print("-->Client Required!")
                     (roll,pitch) = _adx.RollPitch()
                     data = str(roll) + "-" + str(pitch)
-                    connection.sendall(data)
                     print("--> Send: " + data)
+                    connection.sendall(data)
                 else:
                     print(sys.stderr, '-->no more data from', client_address)
                     break
