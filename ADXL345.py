@@ -92,6 +92,18 @@ class ADXL345:
         #Setup I2CBus
         self.bus = i2c.i2c(i2cport, DeviceAdrr)
 
+        # Set defaults
+        self.setScale()
+        self.setTapThreshold()
+        self.setTapDuration()
+        self.setTapLatency()
+        self.setTapWindow()
+        self.setActivityThreshold()
+        self.setInactivityThreshold()
+        self.setInactivityTime()
+        self.setFreeFallThreshold()
+        self.setFreeFallTime()
+
 
     def __str__(self):
         ret_str = ""
@@ -285,7 +297,6 @@ class ADXL345:
         return (accel_x * scaleFactor, accel_y * scaleFactor, accel_z * scaleFactor)
 
     def RollPitch(self):
-        print("-------------")
         try:
             (accel_x, accel_y, accel_z) = self.getAxes()
         except Exception as e:
