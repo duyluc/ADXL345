@@ -38,11 +38,8 @@ def Main():
                     print("-->Client Required!")
                     (roll,pitch) = _adx.RollPitch()
                     data = ""
-                    try:
-                        print("--> Send: " + data)
-                        data = str(roll) + "-" + str(pitch)
-                    except Exception as e:
-                        print(str(e))
+                    print("--> Send: " + data)
+                    data = str(roll) + "-" + str(pitch)
                     print("--> Send: " + data)
                     connection.sendall(data)
                 else:
