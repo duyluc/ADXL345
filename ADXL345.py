@@ -90,7 +90,7 @@ class ADXL345:
 
     def __init__(self, i2cport, DeviceAdrr = 0x53):
         #Setup I2CBus
-        self.bus = i2c.i2c(i2cport, DeviceAdrr)
+        self.bus = i2c.i2c(i2cport, DeviceAdrr,True)
 
         # Set defaults
         self.setScale()
