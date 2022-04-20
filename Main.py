@@ -32,7 +32,7 @@ def Main():
             # Receive the data in small chunks and retransmit it
             while True:
                 data = connection.recv(16)
-                print('received %s' % data.decode('utf-8'))
+                print('received "%s"' % data.decode('utf-8'))
                 if data:
                     print('sending data back to the client')
                     connection.sendall(data)
